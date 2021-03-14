@@ -8,7 +8,7 @@ with open(filepath) as fp:
     while line:
         lines.append(int(line))
         line = fp.readline()
-print(len(lines))
+#print(len(lines))
 
 total = 0
 
@@ -16,12 +16,23 @@ total = 0
 
 # find the two that sum to 2020 
 
-for a in range(len(lines)):
-    for b in range(len(lines)):
-        for c in range(len(lines)):
-            if lines[a]+lines[b]+lines[c] == 2020 and a != b and b != c and a != c:
-                print("corrent numbers found, they are ", lines[a], ' and ', lines[b])
-                print("correct answer is ", lines[a]*lines[b]*lines[c])
-        
+#cool dictionary solution, O(n)
+#part a
 
+# for a in lines:
+#     if a not in returndict:
+#         returndict[2020-a] = a
+#     else:
+#         print(a*(2020-a))
+#         break
 
+#part b
+#dumbass O(n^3) solution because i can't read good
+def algo():
+    for a in lines:
+        for b in lines:
+            for c in lines:
+                if a+b+c == 2020 and a != b and b != c and a != c:
+                    return a*b*c
+
+print(algo())
